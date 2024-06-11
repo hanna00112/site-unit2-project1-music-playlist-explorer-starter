@@ -64,6 +64,27 @@ p {
   color: #e74c3c;
 }
 
+/* For tablets and larger mobile devices (landscape) */
+@media (max-width: 1024px) {
+  .playlist-cards {
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  }
+}
+
+/* For portrait tablets and small desktops */
+@media (max-width: 768px) {
+  .playlist-cards {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+  }
+}
+
+/* For mobile devices */
+@media (max-width: 480px) {
+  .playlist-cards {
+    grid-template-columns: 1fr; /* 1 column */
+  }
+}
+
 .model {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */

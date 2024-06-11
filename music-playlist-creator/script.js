@@ -1,3 +1,4 @@
+//////////////////////////// MODAL CODE
 // Get the button that opens the modal
 var model = document.getElementsById("dropDown");
 
@@ -23,3 +24,13 @@ window.onclick = function (event) {
     modal.style.display = "none";
   }
 };
+///////////////////////////////////////
+
+//// MILESTONE 3: DISPLAYING SHARING PLAYLISTS
+
+const container = document.querySelector(".playlist-cards");
+container.innerHTML = ""; //clear any existing content
+
+function creatingCards(data) {
+  for (let i = 0; i < data.length; i++) {}
+}
