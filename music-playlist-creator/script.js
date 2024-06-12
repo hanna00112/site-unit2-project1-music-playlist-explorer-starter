@@ -1,50 +1,3 @@
-//////////////////////////// MODAL CODE
-
-// Get the button that opens the modal
-var modal = document.getElementsByClassName("modal")[0];
-
-// add the image variable
-var img = document.getElementsByClassName("image-placeholder");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-//function openModal(playlist) {
-//  document.getElementById("sub-playlist").innerText = playlist.name;
-//  document.getElementById("playlistImage").src = playlist.imageUrl;
-
-// When the user clicks on the button, open the modal
-//  modal.style.display = "block";
-//}
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function () {
-  console.log("I closed the function");
-  modal.style.display = "none";
-};
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function (event) {
-  console.log("I opened the modal");
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-};
-
-for (let i = 0; i < img.length; i++) {
-  console.log("the loop is opened");
-  img[i].addEventListener("click", () => {
-    modal.style.display = "block";
-  });
-}
-
-span.addEventListener("click", () => {
-  console.log("the second way to open");
-  modal.style.display = "none";
-});
-
-///////////////////////////////////////
-
 //// MILESTONE 3: DISPLAYING SHARING PLAYLISTS
 
 function creatingCards(data) {
@@ -92,3 +45,42 @@ function creatingCards(data) {
 }
 
 creatingCards(data);
+
+//////////////////////////// MODAL CODE
+
+// Get the button that opens the modal
+var modal = document.getElementsByClassName("modal")[0];
+
+// add the image variable
+var img = document.getElementsByClassName("image-placeholder");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function () {
+  console.log("I closed the function");
+  modal.style.display = "none";
+};
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function (event) {
+  console.log("I opened the modal");
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+};
+
+for (let i = 0; i < img.length; i++) {
+  console.log("the loop is opened");
+  img[i].addEventListener("click", () => {
+    modal.style.display = "block";
+  });
+}
+
+//span.addEventListener("click", () => {
+//  console.log("the second way to open");
+//  modal.style.display = "none";
+//});
+
+///////////////////////////////////////
