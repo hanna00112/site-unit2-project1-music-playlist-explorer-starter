@@ -57,22 +57,26 @@ function creatingCards(data) {
 
     // creating card
     const card = document.createElement("div");
-    card.className = "playlist-card";
+    console.log("Card prints");
+    card.className = "playlist-card"; //adding a Name to the class
 
     // creating image
     const image = document.createElement("img");
+    console.log("the image prints");
     image.className = "image-placeholder";
     image.src = playlist.playlist_art;
 
     // creating title
     const title = document.createElement("h2");
+    console.log("the title prints");
     title.className = "playlist-title";
-    title.textContext = playlist.playlist_name;
+    title.textContent = playlist.playlist_name;
 
     // creating creator tag
     const creator = document.createElement("p");
+    console.log("the creator prints");
     creator.className = "playlist-creator";
-    creator.textContext = playlist.playlist_creator;
+    creator.textContent = playlist.playlist_creator;
 
     // creating likes
     const likes = document.createElement("div");

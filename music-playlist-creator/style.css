@@ -79,11 +79,11 @@ p {
 }
 
 /* For mobile devices */
-//@media (max-width: 480px) {
-//  .playlist-cards {
-//    grid-template-columns: 1fr; /* 1 column */
-//  }
-//}
+@media (max-width: 480px) {
+  .playlist-cards {
+    grid-template-columns: 1fr; /* 1 column */
+  }
+}
 
 .model {
   display: none; /* Hidden by default */
