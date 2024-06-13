@@ -33,10 +33,39 @@ function creatingCards(data) {
 
     // creating likes
     const likes = document.createElement("div");
+    const likeCounter = document.createElement("p");
+    likes.appendChild(likeCounter);
     const likesButton = document.createElement("span");
     likes.className = "likes";
-    likesButton.innerHTML = "&#x2764";
-    likes.textContent = playlist.likeCount;
+    likesButton.innerHTML = '<span class="heart-icon">&#x2665;</span>';
+    likeCounter.textContent = `${playlist.likeCount}`;
+    console.log(likes.textContent, "text content");
+    // incrementing the likes
+    // likesButton.addEventListener("click", () => {
+    // adding clicker if heart is clicked on
+    let heartIcon = likesButton.querySelector(".heart-icon");
+    // let likeCount = likes.textContext;
+    heartIcon.addEventListener("click", () => {
+      console.log("button clicked");
+      if (heartIcon.classList.contains("liked")) {
+        playlist.likeCount -= 1;
+        likeCounter.textContent = `${playlist.likeCount}`;
+        heartIcon.classList.remove("liked");
+      } else {
+        playlist.likeCount += 1;
+        likeCounter.textContent = `${playlist.likeCount}`;
+        heartIcon.classList.add("liked");
+      }
+
+      console.log("the heart active listener is pressed");
+      // event.stopPropagation(); // Prevent the click event from propagating to the tile
+      //const likeCountElement = heartIcon.nextElementSibling;
+      //let likeCount = parseInt(likes.textContext);
+
+      //likeCount++; // add 1 to the like
+      console.log("liked added by one");
+    });
+    // });
 
     // Append elements to card
     card.appendChild(image);
@@ -44,10 +73,12 @@ function creatingCards(data) {
     card.appendChild(creator);
     card.appendChild(likes);
     card.appendChild(likesButton);
+
     container.appendChild(card);
   }
 }
 creatingCards(data);
+
 //////////////////////////// MODAL CODE
 
 // Get the button that opens the modal
@@ -63,14 +94,6 @@ var span = document.getElementsByClassName("close")[0];
 span.onclick = function () {
   console.log("I closed the function");
   modal.style.display = "none";
-};
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function (event) {
-  console.log("I opened the modal");
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
 };
 
 function openModal(playlist) {
@@ -125,10 +148,22 @@ function openModal(playlist) {
 
         // appending the sub-playlist to the sub-playlists container
         subPlaylistsContainer.appendChild(subPlaylist);
+
+        // GETTING THE SHUFFLE
+        document
+          .getElementById("shuffle-button")
+          .addEventListener("click", () => {
+            const subPlaylistsContainer =
+              document.querySelector(".sub-playlists");
+
+            // doing random shuffle
+            const songs = Array.from(subPlaylistsContainer.children);
+            songs.sort(() => Math.random() - 0.5);
+            subPlaylistsContainer.innerHTML = "";
+            songs.forEach((song) => subPlaylistsContainer.appendChild(song)); // Append shuffled songs
+          });
       });
     });
   }
 }
 openModal();
-
-///////////////////////////////////////
